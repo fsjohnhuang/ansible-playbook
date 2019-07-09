@@ -1,0 +1,19 @@
+---
+# Examine network connectivity when setup new managed nodes.
+#
+# Args:
+#     HOSTS(str): Host names.
+#
+# Example
+#   ansible-playbook ping.yml -e "HOSTS=uat2" -i inventory/qmsv2-uat2
+
+
+- hosts: "{{ HOSTS }}"
+  tasks:
+    - name: "Ping {{ inventory_hostname }} if running on Linux."
+      ping:
+      when: hostvars[inventory_hostname].ansible_system == "Linux"
+      
+    - name: "Ping {{ inventory_hostname }} if running on Windows."
+      win_ping:
+      when: hostvars[inventory_hostname].ansible_system != "Linux"
