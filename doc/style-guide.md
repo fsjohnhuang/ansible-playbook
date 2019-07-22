@@ -5,9 +5,9 @@ Obey the rules in section Comments and Docstrings of Google Python Style Guide.
 - Playbook File
    - Pattern: `[{project}-[{env}-]]{object}-{verb}.yml`
    - Sample: 
-     - `qmsv2-web-deploy.yml`
-     - `excel_scheduler-compile.yml`
-     - `ehs-uat2-api-compile.yml`
+     - `oml-web-deploy.yml`
+     - `oh_my_logging-compile.yml`
+     - `oml-uat2-api-compile.yml`
 - Role Directory Name
    - Pattern: `[{project}-]{object}[-{verb}]`
    - Sample:
@@ -21,8 +21,29 @@ Obey the rules in section Comments and Docstrings of Google Python Style Guide.
 - Inventory File Name
    - Pattern: `{project}-{env}`
    - Sample:
-     - `qmsv2-prod`
-     - `qmsv2-uat2`
+     - `oml-prod`
+     - `oml-uat2`
+- Content of inventory
+  - Sample:
+```
+# inventories/oml-prod.yml
+
+# Define the hosts information.
+[web]
+127.0.0.1 ansible_ssh_user="administrator" ansible_ssh_pass="123"
+127.0.0.2 ansible_ssh_user="administrator" ansible_ssh_pass="123"
+
+# Mapping configuration defined in ./group_vars/web_with_f5.yml
+[web_with_f5:children]
+web
+# Mapping configuration defined in  ./group_vars/prod-web.yml
+[prod-web:children]
+web
+
+# Mapping Windows common configuration defined in ./group_vars/windows.yml
+[windows:children]
+web
+```
 - Group Variables File Name
    - Pattern: `{env}-{object}`
    - Sample:
