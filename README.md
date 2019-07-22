@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/status-unstable-orange.svg"> <img src="https://img.shields.io/badge/Python-2.7%2B-brightgreen.svg"> <img src="https://img.shields.io/badge/Ansible-2.8%2B-red.svg"> <img src="https://img.shields.io/badge/Testinfra-3.0%2B-red.svg">
 
-# ansible-playbook
+# oh-my-ansible-playbook
 A Handy Skeleton for Ansible Playbook Project
 
 # The Stack
