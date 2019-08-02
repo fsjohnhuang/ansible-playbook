@@ -15,7 +15,7 @@ A Handy Skeleton for Ansible Playbook Project
 # Install
 1) Clone skeleton from GitHub.
 ```
-git clone git@github.com:fsjohnhuang/ansible-playbook.git
+git clone git@github.com:fsjohnhuang/oh-my-ansible-playbook.git
 ```
 2) Install pipenv.(Assuming Python2.7+ has installed)
 ```
@@ -28,14 +28,14 @@ pipenv install --dev
 
 # Ansible
 ## Ansible Project-Based Configuration
-
+If you want the project-based configuration(i.e. `./ansible.cfg`) to be enabled, set permission of project directory to `770` or `700`, `777` would be ignored by Ansible.
 
 ## Group and Host Vars
 1. The `group_vars` and `host_vars` directories can exist in the playbook directory(i.e. `./src/` in this project) or the inventory directory(i.e. `./inventories` in this project). If both paths exist, variables in the playbook directory will override variables set in the inventory directory.
 2. The `ansible-playbook` command looks for `group_vars` and `host_vars` in the playbook directory by default.
 3. The `ansible` and `ansible-console` commands will only look for `group_vars` and `host_vars` in the inventory directory, unless you provide the `--playbook-dir` option on the command line.
 
-*For keeping things in same pace, recommand placing `group_vars` and `host_vars` in the inventory directory strongly as this project has done.*
+*For keeping things in pace, recommand placing `group_vars` and `host_vars` in the inventory directory strongly as this project has done.*
 
 ## Variables Merge Rules
 The lowest to highest order is:
