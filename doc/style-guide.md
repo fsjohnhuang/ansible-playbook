@@ -1,18 +1,18 @@
 # Comment Style
 Obey the rules in section Comments and Docstrings of Google Python Style Guide.
-   
+
 # Naming Convention
 - Playbook File
    - Pattern: `[{project}-[{env}-]]{object}-{verb}.yml`
-   - Sample: 
+   - Sample:
      - `oml-web-deploy.yml`
      - `oh_my_logging-compile.yml`
      - `oml-uat2-api-compile.yml`
 - Role Directory Name
-   - Pattern: `[{project}-]{object}[-{verb}]`
+   - Pattern: `[{project}-]{object}[-{verb}]--{os}`
    - Sample:
-     - `web-deploy`
-     - `httpd`
+     - `web-deploy--windows`
+     - `httpd--linux`
 - Task File of Roles
    - Pattern: `{object}-{verb}.yml`
    - Sample:
@@ -59,9 +59,9 @@ web
    - Sample
 ```yaml
 ---
-     
+
 - name: Directory {{ DEST }} existed?
-  file: 
+  file:
     path: {{ DEST }}
     state: present
   register: DEST_EXISTED
